@@ -1,0 +1,2 @@
+export const ACTION_SETUSER = 'SETUSER';
+export const ACTION_RETRIVE_USER = 'RETRIVE_USER';

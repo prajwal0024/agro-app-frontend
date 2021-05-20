@@ -1,0 +1,31 @@
+.auth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth input {
+  padding: 5px;
+  margin: 10px;
+}
+
+.auth button {
+  padding: 5px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.auth a {
+  text-align: center;
+}
