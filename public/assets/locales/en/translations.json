@@ -1,0 +1,14 @@
+{
+  "page_title": "AgroApp",
+
+  "login_heading": "Login to your application",
+  "login_para": "Fill in the following details and click on Login Button",
+  "login_link_to_signup": "Already have an Account? Click Here",
+
+  "email_placeholder": "Enter your Email",
+  "password_placeholder": "Enter your Password",
+
+  "email": "email",
+  "password": "password",
+  "login": "login"
+}

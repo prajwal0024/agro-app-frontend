@@ -15,12 +15,58 @@
 .navbar-lang {
   color: var(--color-green-dark);
   line-height: 1;
+  text-transform: capitalize;
+}
+
+.navbar-lang-icon {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--color-green-dark);
+  margin-bottom: 0.2rem;
 }
 
 .navbar-lang-container {
+  padding: 0.6rem 1.5rem 0.2rem 1rem;
   background-color: var(--color-white-dark);
-  padding: 0.9rem 3rem 0.5rem;
   border-radius: 5px;
   cursor: pointer;
   border: 2px solid #d1d9da;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-seprator {
+  background-color: #d1d9da;
+  height: 20px;
+  width: 2px;
+  margin: 0 2rem 0.1rem 0.9rem;
+}
+
+.navbar-dropdown {
+  padding: 1rem 0.8rem;
+  background-color: var(--color-white-dark);
+  border-radius: 5px;
+  border: 2px solid #d1d9da;
+
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 4rem;
+  color: var(--color-green-dark);
+}
+
+.navbar-dropdown-item {
+  text-transform: capitalize;
+  /* background-color: rgb(246, 198, 198); */
+  padding: 0.6rem 0rem 0.6rem 0.6rem;
+  border-radius: 3px;
+}
+
+.navbar-dropdown-item:not(:last-child) {
+  margin-bottom: 1.2rem;
+}
+
+.navbar-dropdown-item:hover {
+  background-color: #b6e1d4;
 }

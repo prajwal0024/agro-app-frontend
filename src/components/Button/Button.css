@@ -17,6 +17,7 @@
   width: 80%;
   margin: 4rem auto 1rem;
   backface-visibility: hidden;
+  font-family: inherit;
 }
 .button-primary:hover {
   backface-visibility: hidden;

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -6,6 +5,7 @@ import { toast } from 'react-toastify';
 import { SIGNUP_ROUTE } from '../../constants/routes';
 import axiosErrorHandler from '../../helpers/axiosErrorHandler';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import './authentication.css';
 import { setUser } from '../../actions/authActions';
@@ -13,6 +13,7 @@ import Input from '../../components/InputField/InputField';
 import Button from '../../components/Button/Button';
 
 const LoginPage = ({ history }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [emailInput, setEmailInput] = useState('');
   const [passowrdlInput, setPassowrdlInput] = useState('');
@@ -51,32 +52,30 @@ const LoginPage = ({ history }) => {
 
   return (
     <div className="auth">
-      <h1 className="auth-heading">Login to your application</h1>
-      <p className="auth-paragraph">
-        Fill in the following details and click on Login Button
-      </p>
+      <h1 className="auth-heading">{t('login_heading')}</h1>
+      <p className="auth-paragraph">{t('login_para')}</p>
       <form onSubmit={handleLogin}>
         <Input
-          label="email"
-          placeholder="enter your email"
+          label={t('email')}
+          placeholder={t('email_placeholder')}
           type="text"
           value={emailInput}
           handleChange={setEmailInput}
         />
         <Input
-          label="password"
-          placeholder="enter your password"
+          label={t('password')}
+          placeholder={t('password_placeholder')}
           type="password"
           value={passowrdlInput}
           handleChange={setPassowrdlInput}
         />
         <Button
-          text="login"
+          text={t('login')}
           handleClick={handleLogin}
           classes="button-primary"
         />
         <Link to={SIGNUP_ROUTE} className="auth-link">
-          Already have an account? Click Here.
+          {t('login_link_to_signup')}
         </Link>
       </form>
     </div>
