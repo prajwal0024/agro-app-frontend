@@ -10,5 +10,11 @@
 
   "email": "ईमेल",
   "password": "पासवर्ड",
-  "login": "लॉग इन"
+  "login": "लॉग इन",
+  "logout": "लॉग आउट",
+
+  "sidebar_home": "होम पेज",
+  "sidebar_crop_prediction": "फसल सुझाव",
+  "sidebar_my_products": "मेरा उत्पाद",
+  "sidebar_account_settings": "अकाउंट सेटिंग"
 }

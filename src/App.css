@@ -56,3 +56,12 @@ body {
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+
+.app-container {
+  padding: 0 2rem;
+  display: flex;
+}
+
+.app-main {
+  flex: 3;
+}

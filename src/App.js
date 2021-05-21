@@ -16,9 +16,14 @@ import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { axiosResponseInterceptor } from './helpers/axiosInterceptor';
 import NavBar from './components/NavBar/NavBar';
+import { useTranslation } from 'react-i18next';
+import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  document.title = t('page_title');
+
   const [loading, setLoading] = useState(true);
 
   const retriveUser = async () => {
@@ -56,9 +61,14 @@ function App() {
           <NavBar />
           <ToastContainer />
           <Switch>
-            <Route path={HOME_ROUTE} exact component={HomePage} />
             <Route path={LOGIN_ROUTE} component={LoginPage} />
             <Route path={SIGNUP_ROUTE} component={SignupPage} />
+            <div className="app-container">
+              <Sidebar />
+              <div className="app-main">
+                <Route path={HOME_ROUTE} exact component={HomePage} />
+              </div>
+            </div>
           </Switch>
         </div>
       </Router>

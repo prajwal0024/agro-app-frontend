@@ -10,5 +10,11 @@
 
   "email": "email",
   "password": "password",
-  "login": "login"
+  "login": "login",
+  "logout": "logout",
+
+  "sidebar_home": "home",
+  "sidebar_crop_prediction": "crop prediction",
+  "sidebar_my_products": "my product",
+  "sidebar_account_settings": "account settings"
 }

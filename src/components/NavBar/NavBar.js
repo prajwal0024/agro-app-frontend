@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './NavBar.css';
-import Logo from '../../assests/logo.png';
+import LogoEn from '../../assests/logo-en.png';
+import LogoHi from '../../assests/logo-hi.png';
 import { ReactComponent as TranslationIcon } from '../../assests/icons/translation.svg';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
@@ -18,17 +19,19 @@ const NavBar = () => {
   ];
 
   const { t } = useTranslation();
-  const [navLang, setNavLang] = useState('English');
+  const [navLang, setNavLang] = useState('english');
   const [showDropdown, setShowDropdown] = useState(false);
+  const [logo, setLogo] = useState(LogoEn);
 
   useEffect(() => {
     document.title = t('page_title');
+    setLogo(navLang === 'english' ? LogoEn : LogoHi);
   }, [navLang]);
 
   return (
     <nav className="navbar">
       <div className="container navbar-container">
-        <img src={Logo} alt="logo" className="navbar-img" />
+        <img src={logo} alt="logo" className="navbar-img" />
         <div
           className="navbar-lang-container"
           onClick={() => setShowDropdown(!showDropdown)}
