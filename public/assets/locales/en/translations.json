@@ -16,5 +16,9 @@
   "sidebar_home": "home",
   "sidebar_crop_prediction": "crop prediction",
   "sidebar_my_products": "my product",
-  "sidebar_account_settings": "account settings"
+  "sidebar_account_settings": "account settings",
+
+  "notfound_heading": "Page Not Found",
+  "notfound_message": "We are not able to find this page, please click below link to go to home page.",
+  "notfound_link": "Go to Home Page"
 }

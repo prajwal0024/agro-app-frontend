@@ -9,10 +9,16 @@ import { ReactComponent as LogoutIcon } from '../../assests/icons/logout.svg';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { logout } from '../../actions/authActions';
-import { LOGIN_ROUTE } from '../../constants/routes';
+import {
+  ACCOUNT_SETTINGS_ROUTE,
+  HOME_ROUTE,
+  LOGIN_ROUTE,
+  MY_PRODUCT_ROUTE,
+  PREDICTION_ROUTE,
+} from '../../constants/routes';
 import axiosErrorHandler from '../../helpers/axiosErrorHandler';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -51,37 +57,37 @@ const Sidebar = () => {
       </div>
       <hr className="sidebar-hr" />
       <div className="sidebar-menu-container">
-        <div className="sidebar-menu-item">
+        <Link to={HOME_ROUTE} className="sidebar-menu-item">
           <HomeIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">{t('sidebar_home')}</p>
-        </div>
+        </Link>
 
-        <div className="sidebar-menu-item">
+        <Link to={PREDICTION_ROUTE} className="sidebar-menu-item">
           <PlantIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">
             {t('sidebar_crop_prediction')}
           </p>
-        </div>
+        </Link>
 
-        <div className="sidebar-menu-item">
+        <Link to={MY_PRODUCT_ROUTE} className="sidebar-menu-item">
           <MyProductIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">{t('sidebar_my_products')}</p>
-        </div>
+        </Link>
 
-        <div className="sidebar-menu-item">
+        <Link to={ACCOUNT_SETTINGS_ROUTE} className="sidebar-menu-item">
           <UserIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">
             {t('sidebar_account_settings')}
           </p>
-        </div>
+        </Link>
 
-        <div
+        <Link
           className="sidebar-menu-item sidebar-menu-item-logout"
           onClick={handleLogout}
         >
           <LogoutIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">{t('logout')}</p>
-        </div>
+        </Link>
       </div>
     </div>
   );

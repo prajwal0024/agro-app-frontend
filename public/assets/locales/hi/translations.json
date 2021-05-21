@@ -16,5 +16,9 @@
   "sidebar_home": "होम पेज",
   "sidebar_crop_prediction": "फसल सुझाव",
   "sidebar_my_products": "मेरा उत्पाद",
-  "sidebar_account_settings": "अकाउंट सेटिंग"
+  "sidebar_account_settings": "अकाउंट सेटिंग",
+
+  "notfound_heading": "यह पेज मौजूद नहीं है",
+  "notfound_message": "हम इस पेज को नहीं ढूंढ पा रहे हैं, नीचे दिया गया लिंक आपको होम पेज पर वापस ले जाएगा, कृपया इसे क्लिक करें",
+  "notfound_link": "होम पेज पर वापस जाएं"
 }

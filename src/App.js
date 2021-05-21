@@ -4,10 +4,21 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/authentication/LoginPage';
 import SignupPage from './pages/authentication/SignupPage';
-import { HOME_ROUTE, LOGIN_ROUTE, SIGNUP_ROUTE } from './constants/routes';
+import HomePage from './pages/HomePage/HomePage';
+import CropPredictionPage from './pages/CropPrediction/CropPredictionPage';
+import UserProductsPage from './pages/UserProducts/UserProductsPage';
+import AccountSettingsPage from './pages/AccountSettings/AccountSettingsPage';
+
+import {
+  ACCOUNT_SETTINGS_ROUTE,
+  HOME_ROUTE,
+  LOGIN_ROUTE,
+  MY_PRODUCT_ROUTE,
+  PREDICTION_ROUTE,
+  SIGNUP_ROUTE,
+} from './constants/routes';
 import axios from 'axios';
 import { setUser } from './actions/authActions';
 import { useDispatch } from 'react-redux';
@@ -18,6 +29,7 @@ import { axiosResponseInterceptor } from './helpers/axiosInterceptor';
 import NavBar from './components/NavBar/NavBar';
 import { useTranslation } from 'react-i18next';
 import Sidebar from './components/Sidebar/Sidebar';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +37,7 @@ function App() {
   document.title = t('page_title');
 
   const [loading, setLoading] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(true);
 
   const retriveUser = async () => {
     try {
@@ -61,12 +74,35 @@ function App() {
           <NavBar />
           <ToastContainer />
           <Switch>
-            <Route path={LOGIN_ROUTE} component={LoginPage} />
-            <Route path={SIGNUP_ROUTE} component={SignupPage} />
+            <Route path={LOGIN_ROUTE} component={LoginPage} exact />
+            <Route path={SIGNUP_ROUTE} component={SignupPage} exact />
             <div className="app-container">
-              <Sidebar />
+              {showSidebar && <Sidebar />}
               <div className="app-main">
-                <Route path={HOME_ROUTE} exact component={HomePage} />
+                <Switch>
+                  <Route path={HOME_ROUTE} component={HomePage} exact />
+                  <Route
+                    path={PREDICTION_ROUTE}
+                    component={CropPredictionPage}
+                    exact
+                  />
+                  <Route
+                    path={MY_PRODUCT_ROUTE}
+                    component={UserProductsPage}
+                    exact
+                  />
+                  <Route
+                    path={ACCOUNT_SETTINGS_ROUTE}
+                    component={AccountSettingsPage}
+                    exact
+                  />
+                  <Route
+                    path="*"
+                    component={() => (
+                      <NotFound setShowSidebar={setShowSidebar} />
+                    )}
+                  />
+                </Switch>
               </div>
             </div>
           </Switch>

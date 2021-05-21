@@ -45,9 +45,6 @@
   margin-bottom: 2rem;
 }
 
-.sidebar-menu-container {
-}
-
 .sidebar-menu-item {
   display: flex;
   align-items: center;
@@ -58,6 +55,8 @@
   transition: all 0.3s;
   cursor: pointer;
   margin-bottom: 1rem;
+  text-decoration: none;
+  color: var(--color-green-dark);
 }
 .sidebar-menu-item:hover {
   background-color: #b6e1d4;
