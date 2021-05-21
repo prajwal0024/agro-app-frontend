@@ -1,0 +1,24 @@
+.button {
+  display: block;
+  font-size: 1.6rem;
+  padding: 1.2rem 0 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  letter-spacing: 1px;
+}
+
+.button-primary {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  text-transform: uppercase;
+  width: 80%;
+  margin: 4rem auto 1rem;
+  backface-visibility: hidden;
+}
+.button-primary:hover {
+  backface-visibility: hidden;
+  width: calc(80% + 10px);
+}

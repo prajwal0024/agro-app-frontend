@@ -1,0 +1,51 @@
+.inputfield {
+  position: relative;
+  width: 95%;
+  margin: 2rem auto 0;
+}
+
+.inputfield-label {
+  font-size: 1.4rem;
+  display: block;
+  font-weight: 300;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+.inputfield-input {
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.4rem;
+  padding: 1rem 1.2rem;
+  border: 2px solid #69888a;
+  width: 100%;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+
+.inputfield-input::placeholder {
+  text-transform: capitalize;
+}
+
+.inputfield-icon-container {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #87a0a1;
+  cursor: pointer;
+}
+
+.inputfield-icon-container:hover {
+  fill: var(--color-green-dark);
+}
+
+.inputfield-input:focus + .inputfield-icon-container {
+  fill: var(--color-green-dark);
+}
+
+.inputfield-icon {
+  width: 100%;
+  height: 100%;
+}

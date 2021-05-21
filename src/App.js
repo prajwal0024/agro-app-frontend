@@ -8,7 +8,6 @@ import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/authentication/LoginPage';
 import SignupPage from './pages/authentication/SignupPage';
 import { HOME_ROUTE, LOGIN_ROUTE, SIGNUP_ROUTE } from './constants/routes';
-import axiosErrorHandler from './helpers/axiosErrorHandler';
 import axios from 'axios';
 import { setUser } from './actions/authActions';
 import { useDispatch } from 'react-redux';
@@ -16,6 +15,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { axiosResponseInterceptor } from './helpers/axiosInterceptor';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +40,6 @@ function App() {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      axiosErrorHandler(error);
     }
   };
 
@@ -54,6 +53,7 @@ function App() {
     <>
       <Router>
         <div className="app">
+          <NavBar />
           <ToastContainer />
           <Switch>
             <Route path={HOME_ROUTE} exact component={HomePage} />

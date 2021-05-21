@@ -1,0 +1,26 @@
+.navbar {
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing);
+}
+
+.navbar-img {
+  width: 7.7rem;
+}
+
+.navbar-lang {
+  color: var(--color-green-dark);
+  line-height: 1;
+}
+
+.navbar-lang-container {
+  background-color: var(--color-white-dark);
+  padding: 0.9rem 3rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid #d1d9da;
+}

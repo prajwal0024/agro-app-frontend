@@ -4,28 +4,30 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
+  color: var(--color-green-dark);
 }
 
-.auth form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.auth-heading {
+  font-size: 3rem;
+  font-weight: 500;
 }
 
-.auth input {
-  padding: 5px;
-  margin: 10px;
-}
-
-.auth button {
-  padding: 5px;
-  margin: 20px 0;
-  cursor: pointer;
-}
-
-.auth a {
+.auth-paragraph {
+  font-size: 1.4rem;
+  margin: 1rem auto;
+  width: 80%;
   text-align: center;
+}
+
+.auth-link:link,
+.auth-link:visited,
+.auth-link:active {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  color: inherit;
+  margin-top: 1rem;
 }

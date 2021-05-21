@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import './authentication.css';
 import { setUser } from '../../actions/authActions';
+import Input from '../../components/InputField/InputField';
+import Button from '../../components/Button/Button';
 
 const LoginPage = ({ history }) => {
   const dispatch = useDispatch();
@@ -48,22 +51,33 @@ const LoginPage = ({ history }) => {
 
   return (
     <div className="auth">
-      <h1>Login</h1>
+      <h1 className="auth-heading">Login to your application</h1>
+      <p className="auth-paragraph">
+        Fill in the following details and click on Login Button
+      </p>
       <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="enter email"
-          onChange={(e) => setEmailInput(e.target.value)}
+        <Input
+          label="email"
+          placeholder="enter your email"
+          type="text"
           value={emailInput}
+          handleChange={setEmailInput}
         />
-        <input
+        <Input
+          label="password"
+          placeholder="enter your password"
           type="password"
-          placeholder="enter password"
-          onChange={(e) => setPassowrdlInput(e.target.value)}
           value={passowrdlInput}
+          handleChange={setPassowrdlInput}
         />
-        <button>login</button>
-        <Link to={SIGNUP_ROUTE}>Go to signup</Link>
+        <Button
+          text="login"
+          handleClick={handleLogin}
+          classes="button-primary"
+        />
+        <Link to={SIGNUP_ROUTE} className="auth-link">
+          Already have an account? Click Here.
+        </Link>
       </form>
     </div>
   );
