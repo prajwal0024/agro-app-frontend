@@ -2,16 +2,25 @@
   "page_title": "एग्रो एप्प",
 
   "login_heading": "अपने अकाउंट में लॉग इन करें",
-  "login_para": "निम्नलिखित विवरण भरें और लॉगिन बटन पर क्लिक करें",
-  "login_link_to_signup": "यदि आपके पास पहले से खाता है तो यहां क्लिक करें",
+  "login_para": "निम्नलिखित जानकारी भरें और लॉगिन बटन पर क्लिक करें",
+  "login_link_to_signup": "यदि आपके पास खाता नहीं है, तो यहां क्लिक करें",
+
+  "signup_heading": "नया खाता बनाएँ",
+  "signup_para": "निम्नलिखित जानकारी भरें और नया खाता बनाएँ बटन पर क्लिक करें",
+  "signup_link_to_login": "यदि आपके पास पहले से खाता है तो यहां क्लिक करें",
+  "signup_toast_password_short": "पासवर्ड बहुत छोटा है",
+  "signup_toast_password_not_match": "पासवर्ड नही मिल रहा ",
 
   "email_placeholder": "अपना ईमेल डालें",
   "password_placeholder": "अपना पासवर्ड डालें",
+  "confirm_password_placeholder": "पासवर्ड दोबारा डालें ",
 
   "email": "ईमेल",
   "password": "पासवर्ड",
+  "confirm_password": "पासवर्ड दोबारा डालें ",
   "login": "लॉग इन",
   "logout": "लॉग आउट",
+  "create_account": "नया खाता बनाएँ ",
 
   "sidebar_home": "होम पेज",
   "sidebar_crop_prediction": "फसल सुझाव",

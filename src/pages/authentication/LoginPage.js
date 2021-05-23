@@ -26,7 +26,7 @@ const LoginPage = ({ history }) => {
     event.preventDefault();
 
     if (!emailInput || !passowrdlInput)
-      return toast.error('Please fill all inputs');
+      return toast.error(t('toast_fill_all_inputs'));
 
     try {
       // 1. Send Request
@@ -47,8 +47,6 @@ const LoginPage = ({ history }) => {
       dispatch(
         setUser({ email, firstName, lastName, phone, areaCode, farmSize })
       );
-
-      // dispatch(setUser({ email: res.data.data.user.email }));
 
       // 4. Redirect
       history.push('/');

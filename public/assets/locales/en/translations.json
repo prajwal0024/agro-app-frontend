@@ -1,17 +1,26 @@
 {
   "page_title": "AgroApp",
 
-  "login_heading": "Login to your application",
+  "login_heading": "Login to your Account",
   "login_para": "Fill in the following details and click on Login Button",
-  "login_link_to_signup": "Already have an Account? Click Here",
+  "login_link_to_signup": "Don't have an account? Click Here",
+
+  "signup_heading": "Create New Account",
+  "signup_para": "Fill in the following details and click on create account button",
+  "signup_link_to_login": "Already have an Account? Click Here",
+  "signup_toast_password_short": "Password too short",
+  "signup_toast_password_not_match": "Passwords do not match",
 
   "email_placeholder": "Enter your Email",
   "password_placeholder": "Enter your Password",
+  "confirm_password_placeholder": "Confirm your Password",
 
   "email": "email",
   "password": "password",
+  "confirm_password": "confirm password",
   "login": "login",
   "logout": "logout",
+  "create_account": "create account",
 
   "sidebar_home": "home",
   "sidebar_crop_prediction": "crop prediction",

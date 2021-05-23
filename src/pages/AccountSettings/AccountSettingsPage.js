@@ -28,11 +28,11 @@ const AccountSettingsPage = ({ history }) => {
   );
 
   useEffect(() => {
-    if (Object.keys(userStore).length === 0) {
-      handleLogout(dispatch, history);
+    if (!userStore || Object.keys(userStore).length === 0) {
+      history.push('/login');
     }
     return () => {
-      if (Object.keys(userStore).length > 0 && !userStore.areaCode)
+      if (userStore && Object.keys(userStore).length > 0 && !userStore.areaCode)
         history.push('/my/settings');
     };
   }, []);
