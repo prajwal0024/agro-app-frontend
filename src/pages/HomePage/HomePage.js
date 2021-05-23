@@ -9,6 +9,7 @@ const HomePage = ({ history }) => {
   const [userId, setUserId] = useState();
 
   if (userStore && Object.keys(userStore).length === 0) history.push('/login');
+  if (!userStore.areaCode) history.push('/my/settings');
 
   const handleGetMe = async () => {
     try {

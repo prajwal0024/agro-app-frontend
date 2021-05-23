@@ -5,20 +5,31 @@ import { ReactComponent as HidePassword } from '../../assests/icons/hide-passwor
 import { ReactComponent as ShowPassword } from '../../assests/icons/show-password.svg';
 import { useState } from 'react';
 
-const Input = ({ label, type, placeholder, value, handleChange }) => {
+const Input = ({
+  id,
+  label,
+  type,
+  placeholder,
+  value,
+  handleChange,
+  disabled,
+  pattern,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="inputfield">
       <label className="inputfield-label">{label}</label>
       <input
+        id={id}
         type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
         placeholder={placeholder}
         className={`inputfield-input ${
           type === 'password' && 'inputfield-input-password'
         }`}
         value={value}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={handleChange}
+        disabled={disabled}
       />
       {type === 'password' && (
         <div

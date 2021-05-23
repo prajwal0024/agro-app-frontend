@@ -20,5 +20,79 @@
 
   "notfound_heading": "Page Not Found",
   "notfound_message": "We are not able to find this page, please click below link to go to home page.",
-  "notfound_link": "Go to Home Page"
+  "notfound_link": "Go to Home Page",
+
+  "user_acc_alert_1": "Please fill all the following details, before proceeding further.",
+  "user_acc_alert_2": "For security measures, you will automatically logout once the password reset is successful, you can simply login back again.",
+
+  "user_acc_label_first_name": "First Name",
+  "user_acc_label_last_name": "Last Name",
+  "user_acc_label_phone_no": "Phone Number",
+  "user_acc_label_area_code": "Area Code",
+  "user_acc_label_farm_size": "Farm Size (in acers)",
+  "user_acc_label_current_password": "Current Password",
+  "user_acc_label_new_password": "New Password",
+  "user_acc_label_confirm_new_password": "Confirm New Password",
+
+  "user_acc_placeholder_first_name": "Enter your first name",
+  "user_acc_placeholder_last_name": "Enter your last name",
+  "user_acc_placeholder_phone_no": "Enter your phone number",
+  "user_acc_placeholder_area_code": "Enter your area code",
+  "user_acc_placeholder_farm_size": "Enter your farm size",
+  "user_acc_placeholder_current_password": "Enter current password",
+  "user_acc_placeholder_new_password": "Enter new password",
+  "user_acc_placeholder_confirm_new_password": "Re-enter new password",
+
+  "user_acc_button_change_photo": "Change Photo",
+  "user_acc_button_remove_photo": "Remove Photo",
+  "user_acc_button_update_profile": "Update Profile",
+  "user_acc_button_change_password": "Change Password",
+
+  "user_acc_heading_account_settings": "Account Settings",
+  "user_acc_heading_change_password": "Change Password",
+
+  "user_acc_toast_profile_update_success": "Profile Update Successful",
+  "user_acc_toast_password_changed": "Password Changed",
+  "user_acc_toast_logout": "Logout Successful",
+
+  "toast_fill_all_inputs": "Please fill all the inputs",
+
+  "crop_predict_heading": "Crop Prediction",
+  "crop_predict_alert_info": "Please fill all the following information, and click calculate",
+  "crop_predict_toast_success": "Predicted Crop:",
+
+  "nitrogen": "nitrogen",
+  "phosphorus": "phosphorus",
+  "potassium": "potassium",
+  "temperature": "temperature",
+  "humidity": "humidity",
+  "ph_value": "ph value",
+  "rainfall": "rainfall",
+  "calculate_crop": "calculate crop",
+
+  "crop_predict_placeholder": "Enter {{element}}",
+
+  "crop_predict_alert_result": "Based on the following factors the best suitable crop is:",
+
+  "rice": "rice",
+  "maize": "maize",
+  "chickpea": "chickpea",
+  "kidneybeans": "kidneybeans",
+  "pigeonpeas": "pigeonpeas",
+  "mothbeans": "mothbeans",
+  "mungbean": "mungbean",
+  "blackgram": "blackgram",
+  "lentil": "lentil",
+  "pomegranate": "pomegranate",
+  "banana": "banana",
+  "mango": "mango",
+  "grapes": "grapes",
+  "watermelon": "watermelon",
+  "apple": "apple",
+  "orange": "orange",
+  "papaya": "papaya",
+  "coconut": "coconut",
+  "cotton": "cotton",
+  "jute": "jute",
+  "coffee": "coffee"
 }

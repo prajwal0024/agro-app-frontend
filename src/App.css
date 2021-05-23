@@ -37,6 +37,12 @@ body {
   margin: 0 auto;
 }
 
+.semi-container {
+  max-width: 1025px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .hidden {
   visibility: hidden;
   pointer-events: none;
@@ -57,11 +63,65 @@ body {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.app-sidebar-container {
+  /* flex: 1;
+  position: relative;
+  margin-right: 3rem;
+  height: 90vh; */
+}
+
 .app-container {
   padding: 0 2rem;
   display: flex;
+  overflow: scroll;
 }
 
 .app-main {
   flex: 3;
+}
+
+.page-heading {
+  font-size: 2.4rem;
+  font-weight: 500;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid #e2e2e2;
+  margin-bottom: 4rem;
+  color: var(--color-green-dark);
+}
+
+.alert {
+  font-size: 1.3rem;
+  font-weight: 300;
+  max-width: 57rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  border: 2px solid #ffcbac;
+  border-radius: 4px;
+  background-color: #fff0eb;
+  color: #fd731b;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.8;
+}
+.alert-green {
+  border: 2px solid #7fb1a9;
+  background-color: #b6e1d4;
+  color: #024446;
+}
+
+.Toastify__toast--success {
+  background-color: #34aa87 !important;
+}
+
+.Toastify__toast--error {
+  background-color: #ff4657 !important;
+}
+
+.Toastify__toast-body {
+  padding: 0px 6px !important;
+}
+
+.Toastify__toast {
+  min-height: 60px !important;
 }

@@ -20,5 +20,79 @@
 
   "notfound_heading": "यह पेज मौजूद नहीं है",
   "notfound_message": "हम इस पेज को नहीं ढूंढ पा रहे हैं, नीचे दिया गया लिंक आपको होम पेज पर वापस ले जाएगा, कृपया इसे क्लिक करें",
-  "notfound_link": "होम पेज पर वापस जाएं"
+  "notfound_link": "होम पेज पर वापस जाएं",
+
+  "user_acc_alert_1": "आगे बढ़ने से पहले कृपया निम्नलिखित सभी जानकारी भरें",
+  "user_acc_alert_2": "आपके खाते की सुरक्षा के लिए, पासवर्ड रीसेट सफल होने के बाद आप लॉग आउट हो जाएंगे, आप चाहें तो फिर से लॉग इन कर सकते हैं",
+
+  "user_acc_label_first_name": "पहला नाम",
+  "user_acc_label_last_name": "उपनाम",
+  "user_acc_label_phone_no": "फ़ोन नंबर",
+  "user_acc_label_area_code": "पिन कोड",
+  "user_acc_label_farm_size": "खेत का आकार (एसर में)",
+  "user_acc_label_current_password": "वर्तमान पासवर्ड",
+  "user_acc_label_new_password": "नया पासवर्ड",
+  "user_acc_label_confirm_new_password": "नया पासवर्ड पुनः दर्ज करें",
+
+  "user_acc_placeholder_first_name": "कृपया अपना पहला नाम डालें",
+  "user_acc_placeholder_last_name": "कृपया अपना उपनाम डालें",
+  "user_acc_placeholder_phone_no": "कृपया अपना फ़ोन नंबर डालें",
+  "user_acc_placeholder_area_code": "कृपया अपना पिन कोड डालें",
+  "user_acc_placeholder_farm_size": "कृपया अपना खेत का आकार डालें",
+  "user_acc_placeholder_current_password": "कृपया अपना वर्तमान पासवर्ड डालें",
+  "user_acc_placeholder_new_password": "कृपया अपना नया पासवर्ड डालें",
+  "user_acc_placeholder_confirm_new_password": "कृपया अपना नया पासवर्ड फिर से डालें",
+
+  "user_acc_button_change_photo": "प्रोफ़ाइल फ़ोटो बदलें",
+  "user_acc_button_remove_photo": "प्रोफ़ाइल फ़ोटो हटाएं",
+  "user_acc_button_update_profile": "प्रोफ़ाइल अपडेट करें",
+  "user_acc_button_change_password": "पासवर्ड बदलें",
+
+  "user_acc_heading_account_settings": "अकाउंट सेटिंग",
+  "user_acc_heading_change_password": "पासवर्ड बदलें",
+
+  "user_acc_toast_profile_update_success": "प्रोफ़ाइल अपडेट सफल रहा",
+  "user_acc_toast_password_changed": "पासवर्ड बदल गया है",
+  "user_acc_toast_logout": "आप लॉग आउट हो चुके हों",
+
+  "toast_fill_all_inputs": "कृपया सभी इनपुट भरें",
+
+  "crop_predict_heading": "फसल सुझाव",
+  "crop_predict_alert_info": "कृपया नीचे दी गई सभी जानकारी भरें, और फसल का सुझाव पर क्लिक करें",
+  "crop_predict_toast_success": "सुझाई गई फसल:",
+
+  "nitrogen": "नाइट्रोजन",
+  "phosphorus": "फास्फोरस",
+  "potassium": "पोटैशियम",
+  "temperature": "टेम्परेचर",
+  "humidity": "नमी",
+  "ph_value": "पीएच की मात्रा",
+  "rainfall": "वर्षा",
+  "calculate_crop": "फसल का सुझाव दें",
+
+  "crop_predict_placeholder": "{{element}} की मात्रा दर्ज करें",
+
+  "crop_predict_alert_result": "निम्नलिखित जानकारी के आधार पर सबसे उपयुक्त फसल है:",
+
+  "rice": "चावल",
+  "maize": "मक्का",
+  "chickpea": "काबुली चना",
+  "kidneybeans": "राज़में",
+  "pigeonpeas": "मटर",
+  "mothbeans": "मोठबीन",
+  "mungbean": "मूंग",
+  "blackgram": "काला चना",
+  "lentil": "मसूर की दाल",
+  "pomegranate": "अनार",
+  "banana": "केला",
+  "mango": "आम",
+  "grapes": "अंगूर",
+  "watermelon": "तरबूज",
+  "apple": "सेब",
+  "orange": "संतरा",
+  "papaya": "पपीता",
+  "coconut": "नारियल",
+  "cotton": "कपास",
+  "jute": "जूट",
+  "coffee": "कॉफ़ी"
 }

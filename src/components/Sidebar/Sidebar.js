@@ -6,41 +6,24 @@ import { ReactComponent as MyProductIcon } from '../../assests/icons/my-product.
 import { ReactComponent as UserIcon } from '../../assests/icons/user.svg';
 import { ReactComponent as LogoutIcon } from '../../assests/icons/logout.svg';
 
+import { useLocation } from 'react-router-dom';
+
 import { useTranslation } from 'react-i18next';
-import axios from 'axios';
-import { logout } from '../../actions/authActions';
 import {
   ACCOUNT_SETTINGS_ROUTE,
   HOME_ROUTE,
-  LOGIN_ROUTE,
   MY_PRODUCT_ROUTE,
   PREDICTION_ROUTE,
 } from '../../constants/routes';
-import axiosErrorHandler from '../../helpers/axiosErrorHandler';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
+import handleLogout from '../../helpers/handleLogout';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { t } = useTranslation();
-  const handleLogout = async () => {
-    try {
-      // 1. Clear refresh token
-      await axios.delete('/api/v1/users/token');
-
-      // 2. Clear Header
-      axios.defaults.headers.common['Authorization'] = null;
-
-      // 3. Clear user from memory
-      dispatch(logout());
-
-      // 4. Redirect
-      history.push(LOGIN_ROUTE);
-    } catch (error) {
-      axiosErrorHandler(error);
-    }
-  };
+  const { pathname } = useLocation();
 
   return (
     <div className="home-sidebar">
@@ -57,24 +40,44 @@ const Sidebar = () => {
       </div>
       <hr className="sidebar-hr" />
       <div className="sidebar-menu-container">
-        <Link to={HOME_ROUTE} className="sidebar-menu-item">
+        <Link
+          to={HOME_ROUTE}
+          className={`sidebar-menu-item ${
+            pathname === '/' && 'sidebar-menu-item-active'
+          }`}
+        >
           <HomeIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">{t('sidebar_home')}</p>
         </Link>
 
-        <Link to={PREDICTION_ROUTE} className="sidebar-menu-item">
+        <Link
+          to={PREDICTION_ROUTE}
+          className={`sidebar-menu-item ${
+            pathname === '/prediction' && 'sidebar-menu-item-active'
+          }`}
+        >
           <PlantIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">
             {t('sidebar_crop_prediction')}
           </p>
         </Link>
 
-        <Link to={MY_PRODUCT_ROUTE} className="sidebar-menu-item">
+        <Link
+          to={MY_PRODUCT_ROUTE}
+          className={`sidebar-menu-item ${
+            pathname === '/my/products' && 'sidebar-menu-item-active'
+          }`}
+        >
           <MyProductIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">{t('sidebar_my_products')}</p>
         </Link>
 
-        <Link to={ACCOUNT_SETTINGS_ROUTE} className="sidebar-menu-item">
+        <Link
+          to={ACCOUNT_SETTINGS_ROUTE}
+          className={`sidebar-menu-item ${
+            pathname === '/my/settings' && 'sidebar-menu-item-active'
+          }`}
+        >
           <UserIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">
             {t('sidebar_account_settings')}
@@ -83,7 +86,7 @@ const Sidebar = () => {
 
         <Link
           className="sidebar-menu-item sidebar-menu-item-logout"
-          onClick={handleLogout}
+          onClick={() => handleLogout(dispatch, history)}
         >
           <LogoutIcon className="sidebar-menu-item-icon" />
           <p className="sidebar-menu-item-text">{t('logout')}</p>

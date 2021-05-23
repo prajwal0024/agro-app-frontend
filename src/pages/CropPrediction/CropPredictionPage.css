@@ -1,0 +1,27 @@
+.crop-predict-form {
+  margin-bottom: 5rem;
+}
+
+.crop-predict-form-inputs-container {
+  margin: 2rem auto 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6rem;
+  row-gap: 2rem;
+}
+
+.crop-predict-form-buttons-container {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.crop-predict-crop-name {
+  font-weight: 400;
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  padding: 0.2rem 2rem;
+  margin: 1rem 0 0.5rem;
+  border: 2px dashed #7fb1a9;
+  display: inline-block;
+  text-transform: uppercase;
+}

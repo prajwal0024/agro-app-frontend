@@ -41,7 +41,14 @@ const LoginPage = ({ history }) => {
       ] = `Bearer ${res.data.accessToken}`;
 
       // 3. Set User
-      dispatch(setUser({ email: res.data.data.user.email }));
+      const { email, firstName, lastName, phone, areaCode, farmSize } =
+        res.data.data.user;
+
+      dispatch(
+        setUser({ email, firstName, lastName, phone, areaCode, farmSize })
+      );
+
+      // dispatch(setUser({ email: res.data.data.user.email }));
 
       // 4. Redirect
       history.push('/');
@@ -60,14 +67,14 @@ const LoginPage = ({ history }) => {
           placeholder={t('email_placeholder')}
           type="text"
           value={emailInput}
-          handleChange={setEmailInput}
+          handleChange={(e) => setEmailInput(e.target.value)}
         />
         <Input
           label={t('password')}
           placeholder={t('password_placeholder')}
           type="password"
           value={passowrdlInput}
-          handleChange={setPassowrdlInput}
+          handleChange={(e) => setPassowrdlInput(e.target.value)}
         />
         <Button
           text={t('login')}

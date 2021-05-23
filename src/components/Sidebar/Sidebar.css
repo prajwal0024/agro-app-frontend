@@ -75,6 +75,10 @@
   padding-top: 0.1rem;
 }
 
+.sidebar-menu-item-active {
+  background-color: #b6e1d4;
+}
+
 .sidebar-menu-item-logout {
   color: #fd731b;
 }

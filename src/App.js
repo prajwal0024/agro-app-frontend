@@ -50,10 +50,14 @@ function App() {
       // 2. Get User
       if (tokenRes.data.accessToken) {
         const userRes = await axios.get('/api/v1/users/me');
-        const { user } = userRes.data.data;
 
         // 3. Save User
-        dispatch(setUser({ email: user.email }));
+        const { email, firstName, lastName, phone, areaCode, farmSize } =
+          userRes.data.data.user;
+
+        dispatch(
+          setUser({ email, firstName, lastName, phone, areaCode, farmSize })
+        );
       }
       setLoading(false);
     } catch (error) {
@@ -76,7 +80,7 @@ function App() {
           <Switch>
             <Route path={LOGIN_ROUTE} component={LoginPage} exact />
             <Route path={SIGNUP_ROUTE} component={SignupPage} exact />
-            <div className="app-container">
+            <div className="app-container container">
               {showSidebar && <Sidebar />}
               <div className="app-main">
                 <Switch>
