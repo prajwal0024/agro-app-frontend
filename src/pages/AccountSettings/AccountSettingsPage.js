@@ -10,6 +10,7 @@ import axiosErrorHandler from '../../helpers/axiosErrorHandler';
 import axios from 'axios';
 import { setUser } from '../../actions/authActions';
 import handleLogout from '../../helpers/handleLogout';
+import { ACCOUNT_SETTINGS_ROUTE, LOGIN_ROUTE } from '../../constants/routes';
 
 const AccountSettingsPage = ({ history }) => {
   const dispatch = useDispatch();
@@ -29,11 +30,16 @@ const AccountSettingsPage = ({ history }) => {
 
   useEffect(() => {
     if (!userStore || Object.keys(userStore).length === 0) {
-      history.push('/login');
+      history.push(LOGIN_ROUTE);
     }
     return () => {
-      if (userStore && Object.keys(userStore).length > 0 && !userStore.areaCode)
-        history.push('/my/settings');
+      if (
+        userStore &&
+        Object.keys(userStore).length > 0 &&
+        !userStore.areaCode
+      ) {
+        history.push(ACCOUNT_SETTINGS_ROUTE);
+      }
     };
   }, []);
 
@@ -52,7 +58,7 @@ const AccountSettingsPage = ({ history }) => {
       !userInputs.areaCode ||
       !userInputs.farmSize
     )
-      toast.error(t('toast_fill_all_inputs'));
+      return toast.error(t('toast_fill_all_inputs'));
 
     try {
       // 2. Send Request

@@ -18,6 +18,7 @@ import {
   MY_PRODUCT_ROUTE,
   PREDICTION_ROUTE,
   SIGNUP_ROUTE,
+  USER_SINGLE_PRODUCT_PAGE,
 } from './constants/routes';
 import axios from 'axios';
 import { setUser } from './actions/authActions';
@@ -30,6 +31,7 @@ import NavBar from './components/NavBar/NavBar';
 import { useTranslation } from 'react-i18next';
 import Sidebar from './components/Sidebar/Sidebar';
 import NotFound from './pages/NotFound/NotFound';
+import UserSingleProductPage from './pages/UserSingleProduct/UserSingleProductPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -52,12 +54,7 @@ function App() {
         const userRes = await axios.get('/api/v1/users/me');
 
         // 3. Save User
-        const { email, firstName, lastName, phone, areaCode, farmSize } =
-          userRes.data.data.user;
-
-        dispatch(
-          setUser({ email, firstName, lastName, phone, areaCode, farmSize })
-        );
+        dispatch(setUser({ ...userRes.data.data.user }));
       }
       setLoading(false);
     } catch (error) {
@@ -98,6 +95,11 @@ function App() {
                   <Route
                     path={ACCOUNT_SETTINGS_ROUTE}
                     component={AccountSettingsPage}
+                    exact
+                  />
+                  <Route
+                    path={USER_SINGLE_PRODUCT_PAGE}
+                    component={UserSingleProductPage}
                     exact
                   />
                   <Route

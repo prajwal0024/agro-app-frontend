@@ -41,12 +41,7 @@ const LoginPage = ({ history }) => {
       ] = `Bearer ${res.data.accessToken}`;
 
       // 3. Set User
-      const { email, firstName, lastName, phone, areaCode, farmSize } =
-        res.data.data.user;
-
-      dispatch(
-        setUser({ email, firstName, lastName, phone, areaCode, farmSize })
-      );
+      dispatch(setUser({ ...res.data.data.user }));
 
       // 4. Redirect
       history.push('/');

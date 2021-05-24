@@ -1,0 +1,54 @@
+.user-prod-container {
+  position: relative;
+}
+
+.user-prod-empty-container {
+  margin-top: 18vh;
+  text-align: center;
+}
+
+.user-prod-empty-illustration {
+  width: 30rem;
+  height: auto;
+}
+
+.user-prod-empty-message {
+  font-size: 1.6rem;
+  color: var(--color-green-dark);
+  max-width: 45rem;
+  margin: 4rem auto 2.5rem;
+  line-height: 1.8;
+}
+
+.user-prod-empty-link {
+  color: var(--color-green-dark);
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.9rem 5rem;
+  background-color: #b6e1d4;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.5s;
+  margin: 1rem auto 0;
+}
+.user-prod-empty-link:hover {
+  padding: 0.9rem 6rem;
+}
+
+.user-prod-products-container {
+  text-align: center;
+}
+
+.user-prod-products-add-link {
+  color: var(--color-green-dark);
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.9rem 5rem;
+  background-color: #b6e1d4;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.5s;
+  margin: 1rem auto 0;
+}

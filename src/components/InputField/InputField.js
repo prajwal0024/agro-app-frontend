@@ -14,11 +14,12 @@ const Input = ({
   handleChange,
   disabled,
   pattern,
+  classes,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="inputfield">
+    <div className={`inputfield ${classes}`}>
       <label className="inputfield-label">{label}</label>
       <input
         id={id}

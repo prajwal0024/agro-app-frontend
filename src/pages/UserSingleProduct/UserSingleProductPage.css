@@ -1,0 +1,17 @@
+.user-prod-sing-inputs-container {
+  margin: 2rem auto 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6rem;
+  row-gap: 2rem;
+}
+
+.user-prod-sing-button-container {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.user-sing-prod-span-input {
+  grid-column: 1 / span 2;
+  width: 97.5%;
+}

@@ -1,0 +1,127 @@
+.weather-widget {
+  padding-bottom: 2rem;
+  border: 2px solid #e2e2e2;
+  margin-bottom: 5rem;
+}
+.ww-today {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  /* border: 2px solid #649993; */
+  border-radius: 2px;
+  margin: 0 2rem 2rem 2rem;
+  padding: 2.2rem 2.5rem 2.2rem 0rem;
+  row-gap: 2rem;
+}
+
+.ww-today-temp-container {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+
+  background-color: #b6e1d4;
+  padding: 2rem 0;
+  border-radius: 5px;
+  margin-right: 2.5rem;
+}
+
+.ww-today-temp {
+  font-size: 3.2rem;
+  color: var(--color-green-dark);
+  letter-spacing: 1px;
+}
+
+.ww-today-text {
+  font-size: 1.4rem;
+  color: var(--color-green-dark);
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+}
+
+.ww-today-temp-minmax-container {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 1rem;
+}
+
+.ww-today-temp-minmax {
+  display: flex;
+  font-size: 1.4rem;
+  padding: 0 1rem;
+}
+
+.ww-today-temp-minmax-text {
+  padding-right: 0.5rem;
+  color: #4d7c7d;
+}
+
+.ww-today-temp-minmax-number {
+  color: var(--color-green-dark);
+}
+
+.ww-today-info-container {
+  align-self: center;
+  justify-self: start;
+}
+
+.ww-today-info-label {
+  font-size: 1.3rem;
+  color: #4d7c7d;
+  /* letter-spacing: 1px; */
+  margin-bottom: 0.5rem;
+}
+
+.ww-today-info {
+  font-size: 1.8rem;
+  color: var(--color-green-dark);
+  letter-spacing: 1px;
+}
+
+.ww-daily-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+  padding: 2rem;
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 24px;
+  border-radius: 10px;
+}
+
+.ww-daily {
+}
+
+.daily-date {
+  font-size: 1.2rem;
+  color: #4d7c7d;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.ww-daily-stats-container {
+}
+
+.ww-daily-stat {
+  display: flex;
+  align-items: baseline;
+}
+.ww-daily-stat:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.ww-daily-stat-number {
+  font-size: 1.8rem;
+  color: var(--color-green-dark);
+  letter-spacing: 1px;
+}
+
+.ww-daily-stat-text {
+  font-size: 1.2rem;
+  color: #4d7c7d;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
