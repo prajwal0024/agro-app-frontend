@@ -103,5 +103,28 @@
   "coconut": "coconut",
   "cotton": "cotton",
   "jute": "jute",
-  "coffee": "coffee"
+  "coffee": "coffee",
+
+  "temp": "temp",
+  "wind_speed": "wind speed",
+  "wind_gust": "wind gust",
+  "sunrise": "sunrise",
+  "sunset": "sunset",
+  "location": "location",
+  "wind": "wind",
+  "min": "min",
+  "max": "max",
+  "percent": "percent",
+
+  "product_name": "product name",
+  "price": "price",
+  "date_uploaded": "date uploaded",
+  "pincode": "pincode",
+  "total_quantity": "total quantity",
+  "posted_by": "posted by",
+  "per": "per",
+  "edit_product": "edit product",
+
+  "fetching_weather_data": "Fetching Weather Data...",
+  "fetching_market_data": "Fetching Market Data..."
 }

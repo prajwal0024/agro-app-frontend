@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import './AccountSettingsPage.css';
 import UserProfile from '../../assests/images/user-profile.jpg';
 import InputField from '../../components/InputField/InputField';
 import Button from '../../components/Button/Button';
+import ImageCropper from '../../components/ImageCropper/ImageCropper';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -11,11 +13,17 @@ import axios from 'axios';
 import { setUser } from '../../actions/authActions';
 import handleLogout from '../../helpers/handleLogout';
 import { ACCOUNT_SETTINGS_ROUTE, LOGIN_ROUTE } from '../../constants/routes';
+import { setUserImage } from '../../actions/userActions';
 
 const AccountSettingsPage = ({ history }) => {
+  let oldAreaCode = 0;
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const userStore = useSelector((state) => state.authReducer.user);
+
+  const [userImageInputs, setUserImageInputs] = useState('');
+  const [userCroppedImage, setUserCroppedImage] = useState('');
+  const [axiosImageLoading, setAxiosImageLoading] = useState(false);
   const [userInputs, setUserInputs] = useState(
     userStore
       ? {
@@ -42,6 +50,21 @@ const AccountSettingsPage = ({ history }) => {
       }
     };
   }, []);
+
+  // const setUserLocation = async () => {
+  //   if (!userStore.areaCode) return;
+  //   console.log('JHSKDKSJHDKJSDKHSKDHKSHDKJSHDKDHSKDHKSHDKDH');
+  //   try {
+  //     const res = await axios.get(
+  //       `https://thingproxy.freeboard.io/fetch/https://api.postalpincode.in/pincode/${userStore.areaCode}`
+  //     );
+  //     const { Name, Block, District, State } = res.data[0]?.PostOffice[0];
+  //     console.log(Name, Block, District, State);
+  //     // dispatch(setUserLocation(Name));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleUserInputs = (e) => {
     const { id, value } = e.target;
@@ -108,6 +131,35 @@ const AccountSettingsPage = ({ history }) => {
     }
   };
 
+  const handleUploadImage = async () => {
+    try {
+      setAxiosImageLoading(true);
+      const res = await axios.patch('/api/v1/users/me/image', {
+        imageStr: userCroppedImage,
+      });
+      setUserImageInputs(undefined);
+      dispatch(setUserImage(res.data.data.imageUrl));
+      setAxiosImageLoading(false);
+      toast.success('Image Upload Successfull');
+    } catch (error) {
+      setAxiosImageLoading(false);
+      axiosErrorHandler(error);
+    }
+  };
+
+  const handleRemoveImage = async () => {
+    try {
+      setAxiosImageLoading(true);
+      const res = await axios.delete('/api/v1/users/me/image');
+      dispatch(setUserImage(''));
+      setAxiosImageLoading(false);
+      toast.success('Image Removed Successfull');
+    } catch (error) {
+      setAxiosImageLoading(false);
+      axiosErrorHandler(error);
+    }
+  };
+
   return (
     <div className="user-acc">
       <div className="semi-container user-acc-container">
@@ -115,20 +167,73 @@ const AccountSettingsPage = ({ history }) => {
           {t('user_acc_heading_account_settings')}
         </h1>
         <div className="user-acc-profile-container">
-          <div className="user-acc-profile-img-container">
-            <img
-              src={UserProfile}
-              alt="user profile"
-              className="user-acc-profile-img"
+          {userImageInputs && !axiosImageLoading ? (
+            <ImageCropper
+              srcImage={userImageInputs}
+              setCropImage={setUserCroppedImage}
             />
-          </div>
+          ) : (
+            <div className="user-acc-profile-img-container">
+              <img
+                src={userStore.image || UserProfile}
+                alt="user profile"
+                className="user-acc-profile-img"
+              />
+            </div>
+          )}
+
           <div className="user-acc-profile-buttons-container">
-            <button className="user-acc-profile-button user-acc-profile-button-primary">
-              {t('user_acc_button_change_photo')}
-            </button>
-            <button className="user-acc-profile-button user-acc-profile-button-secondary">
-              {t('user_acc_button_remove_photo')}
-            </button>
+            {/* 
+            
+              LABEL:   CHANGE|ADD IMAGE
+              INPUT
+              BUTTON:  CANCEL UPLOAD | REMOVE IMAGE
+            */}
+            {axiosImageLoading ? (
+              <p>Loading please wait...</p>
+            ) : userImageInputs ? (
+              <>
+                <button
+                  onClick={handleUploadImage}
+                  className="user-acc-profile-button user-acc-profile-button-primary"
+                >
+                  Upload Image
+                </button>
+                <button
+                  className="user-acc-profile-button user-acc-profile-button-secondary"
+                  onClick={() => setUserImageInputs(false)}
+                >
+                  Cancel Upload
+                </button>
+              </>
+            ) : (
+              <>
+                <label
+                  className="user-acc-profile-label user-acc-profile-button-primary"
+                  htmlFor="image-upload-input"
+                >
+                  {userStore.image ? 'Change' : 'Add'} Image
+                </label>
+                <input
+                  style={{ display: 'none' }}
+                  type="file"
+                  accept="image/*"
+                  id="image-upload-input"
+                  className="image-upload-input"
+                  onChange={(e) => {
+                    setUserImageInputs(URL.createObjectURL(e.target.files[0]));
+                  }}
+                />
+                {userStore.image && (
+                  <button
+                    className="user-acc-profile-button user-acc-profile-button-secondary"
+                    onClick={handleRemoveImage}
+                  >
+                    Remove Image
+                  </button>
+                )}
+              </>
+            )}
           </div>
         </div>
         {userStore && !userStore.areaCode && (

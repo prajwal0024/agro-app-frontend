@@ -103,5 +103,28 @@
   "coconut": "नारियल",
   "cotton": "कपास",
   "jute": "जूट",
-  "coffee": "कॉफ़ी"
+  "coffee": "कॉफ़ी",
+
+  "temp": "तापमान",
+  "wind_speed": "हवा",
+  "wind_gust": "झोके",
+  "sunrise": "सूर्योदय",
+  "sunset": "सूर्यास्त",
+  "location": "स्थान",
+  "wind": "हवा",
+  "min": "मिनट",
+  "max": "मैक्स",
+  "percent": "प्रतिशत",
+
+  "product_name": "उत्पाद का नाम",
+  "price": "कीमत",
+  "date_uploaded": "अपलोड की तारीख",
+  "pincode": "पिन कोड",
+  "total_quantity": "कुल मात्रा",
+  "posted_by": "पोस्ट करने वाले का नाम",
+  "per": "प्रति",
+  "edit_product": "उत्पाद संपादित करें",
+
+  "fetching_weather_data": "मौसम का डेटा लोड हो रहा है...",
+  "fetching_market_data": "बाजार का डेटा लोड हो रहा है..."
 }

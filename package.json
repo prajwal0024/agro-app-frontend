@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "cropperjs": "^1.5.12",
     "dotenv": "^10.0.0",
     "i18next": "^20.2.4",
     "i18next-browser-languagedetector": "^6.1.1",

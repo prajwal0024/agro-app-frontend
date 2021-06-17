@@ -1,4 +1,6 @@
 import ProductImage from '../../assests/images/product-image-missing.jpg';
+import { useTranslation } from 'react-i18next';
+
 const MarketProduct = ({
   name,
   price,
@@ -8,6 +10,7 @@ const MarketProduct = ({
   createdAt,
   userName,
 }) => {
+  const { t } = useTranslation();
   const months = [
     'Jan',
     'Feb',
@@ -33,32 +36,34 @@ const MarketProduct = ({
       </div>
 
       <div className="upl-info-container">
-        <p className="upl-info-label">Product Name:</p>
+        <p className="upl-info-label">{t('product_name')}</p>
         <p className="upl-info">{name}</p>
       </div>
 
       <div className="upl-info-container">
-        <p className="upl-info-label">Price (per {perQuantity})</p>
+        <p className="upl-info-label">
+          {t('price')} ({t('per')} {perQuantity})
+        </p>
         <p className="upl-info">Rs. {price}</p>
       </div>
 
       <div className="upl-info-container">
-        <p className="upl-info-label">Date Uploaded</p>
+        <p className="upl-info-label">{t('date_uploaded')}</p>
         <p className="upl-info">{formatDate(createdAt)}</p>
       </div>
 
       <div className="upl-info-container">
-        <p className="upl-info-label">PinCode</p>
+        <p className="upl-info-label">{t('pincode')}</p>
         <p className="upl-info">{location}</p>
       </div>
 
       <div className="upl-info-container">
-        <p className="upl-info-label">Total Quantity</p>
+        <p className="upl-info-label">{t('total_quantity')}</p>
         <p className="upl-info">{totalQuantity}</p>
       </div>
 
       <div className="upl-info-container">
-        <p className="upl-info-label">Posted By</p>
+        <p className="upl-info-label">{t('posted_by')}</p>
         <p className="upl-info">{userName}</p>
       </div>
     </div>

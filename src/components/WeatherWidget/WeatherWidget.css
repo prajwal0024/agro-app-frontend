@@ -40,12 +40,13 @@
   color: var(--color-green-dark);
   letter-spacing: 1px;
   margin-top: 0.5rem;
+  text-transform: capitalize;
 }
 
 .ww-today-temp-minmax-container {
   display: flex;
   justify-content: space-between;
-
+  text-transform: capitalize;
   margin-top: 1rem;
 }
 
@@ -73,6 +74,7 @@
   font-size: 1.3rem;
   color: #4d7c7d;
   /* letter-spacing: 1px; */
+  text-transform: capitalize;
   margin-bottom: 0.5rem;
 }
 
@@ -124,4 +126,5 @@
   color: #4d7c7d;
   display: inline-block;
   margin-left: 0.5rem;
+  text-transform: capitalize;
 }

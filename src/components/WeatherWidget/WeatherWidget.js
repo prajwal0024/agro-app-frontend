@@ -1,11 +1,15 @@
+/* eslint-disable no-constant-condition */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import axiosErrorHandler from '../../helpers/axiosErrorHandler';
+import Fetching from '../Fetching/Fetching';
 import './WeatherWidget.css';
 
 const WeatherWidget = () => {
+  const { t } = useTranslation();
   const [axiosLoading, setAxiosLoading] = useState(true);
   const [weatherData, setWeatherData] = useState({});
   const [weatherLocation, setWeatherLocation] = useState('');
@@ -66,22 +70,22 @@ const WeatherWidget = () => {
   return (
     <div className="weather-widget">
       {axiosLoading ? (
-        <h1>Loading</h1>
+        <Fetching text={t('fetching_weather_data')} svg="weather" />
       ) : (
         <>
           <div className="ww-today">
             <div className="ww-today-temp-container">
               <p className="ww-today-temp">{weatherData[0].temp.day}&#176; c</p>
-              <p className="ww-today-text">Tempreture</p>
+              <p className="ww-today-text">{t('temperature')}</p>
               <div className="ww-today-temp-minmax-container">
                 <div className="ww-today-temp-minmax">
-                  <p className="ww-today-temp-minmax-text">Min: </p>
+                  <p className="ww-today-temp-minmax-text">{t('min')}: </p>
                   <p className="ww-today-temp-minmax-number">
                     {weatherData[0].temp.min}
                   </p>
                 </div>
                 <div className="ww-today-temp-minmax">
-                  <p className="ww-today-temp-minmax-text">Max: </p>
+                  <p className="ww-today-temp-minmax-text">{t('max')}: </p>
                   <p className="ww-today-temp-minmax-number">
                     {weatherData[0].temp.max}
                   </p>
@@ -89,31 +93,33 @@ const WeatherWidget = () => {
               </div>
             </div>
             <div className="ww-today-info-container">
-              <p className="ww-today-info-label">Humidity</p>
-              <p className="ww-today-info">{weatherData[0].humidity} percent</p>
+              <p className="ww-today-info-label">{t('humidity')}</p>
+              <p className="ww-today-info">
+                {weatherData[0].humidity} {t('percent')}
+              </p>
             </div>
             <div className="ww-today-info-container">
-              <p className="ww-today-info-label">Wind Speed</p>
+              <p className="ww-today-info-label">{t('wind_speed')}</p>
               <p className="ww-today-info">{weatherData[0].wind_speed} km/h</p>
             </div>
             <div className="ww-today-info-container">
-              <p className="ww-today-info-label">Wind Gust</p>
+              <p className="ww-today-info-label">{t('wind_gust')}</p>
               <p className="ww-today-info">{weatherData[0].wind_gust} km/h</p>
             </div>
             <div className="ww-today-info-container">
-              <p className="ww-today-info-label">Sunrise</p>
+              <p className="ww-today-info-label">{t('sunrise')}</p>
               <p className="ww-today-info">
                 {unixToTime(weatherData[0].sunrise)} am
               </p>
             </div>
             <div className="ww-today-info-container">
-              <p className="ww-today-info-label">Sunset</p>
+              <p className="ww-today-info-label">{t('sunset')}</p>
               <p className="ww-today-info">
-                {unixToTime(weatherData[0].sunset)} am
+                {unixToTime(weatherData[0].sunset)} pm
               </p>
             </div>
             <div className="ww-today-info-container">
-              <p className="ww-today-info-label">Location</p>
+              <p className="ww-today-info-label">{t('location')}</p>
               <p className="ww-today-info">{weatherLocation}</p>
             </div>
           </div>
@@ -131,17 +137,17 @@ const WeatherWidget = () => {
                       <p className="ww-daily-stat-number">
                         {Math.round(daily.temp.day)}°c
                       </p>
-                      <p className="ww-daily-stat-text">Temp</p>
+                      <p className="ww-daily-stat-text">{t('temp')}</p>
                     </div>
                     <div className="ww-daily-stat">
                       <p className="ww-daily-stat-number">{daily.humidity}%</p>
-                      <p className="ww-daily-stat-text">Humidity</p>
+                      <p className="ww-daily-stat-text">{t('humidity')}</p>
                     </div>
                     <div className="ww-daily-stat">
                       <p className="ww-daily-stat-number">
                         {Math.round(daily.wind_speed)} km/h
                       </p>
-                      <p className="ww-daily-stat-text">Wind</p>
+                      <p className="ww-daily-stat-text">{t('wind')}</p>
                     </div>
                   </div>
                 </div>

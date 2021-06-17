@@ -54,6 +54,7 @@
   left: 0;
   top: 4rem;
   color: var(--color-green-dark);
+  z-index: 5;
 }
 
 .navbar-dropdown-item {

@@ -7,11 +7,13 @@ import { useEffect, useState } from 'react';
 import WeatherWidget from '../../components/WeatherWidget/WeatherWidget';
 import { ACCOUNT_SETTINGS_ROUTE } from '../../constants/routes';
 import MarketProduct from '../../components/MarketProduct/MarketProduct';
+import Fetching from '../../components/Fetching/Fetching';
 
 const HomePage = ({ history }) => {
   const userStore = useSelector((state) => state.authReducer.user);
   const [userId, setUserId] = useState();
   const [marketProducts, setMarketProducts] = useState([]);
+  const [axiosLoading, setAxiosLoading] = useState(false);
 
   if (userStore && Object.keys(userStore).length === 0)
     return history.push('/login');
@@ -31,9 +33,12 @@ const HomePage = ({ history }) => {
 
   const fetchProducts = async () => {
     try {
+      setAxiosLoading(true);
       const response = await axios.get('/api/v1/products');
       setMarketProducts(response.data.data.products);
+      setAxiosLoading(false);
     } catch (error) {
+      setAxiosLoading(false);
       axiosErrorHandler(error);
     }
   };
@@ -47,22 +52,26 @@ const HomePage = ({ history }) => {
       <div className="container home-container">
         <WeatherWidget />
         <h1 className="page-heading">Marketplace</h1>
-        {marketProducts.map((product, index) => (
-          <MarketProduct
-            key={index}
-            name={product.name}
-            price={product.price}
-            perQuantity={product.perQuantity}
-            totalQuantity={product.totalQuantity}
-            location={product.location}
-            createdAt={product.createdAt}
-            userName={
-              product.user.email === userStore.email
-                ? 'YOU'
-                : `${product.user.firstName} ${product.user.lastName}`
-            }
-          />
-        ))}
+        {axiosLoading ? (
+          <Fetching text={'fetching_market_data'} svg="market" />
+        ) : (
+          marketProducts.map((product, index) => (
+            <MarketProduct
+              key={index}
+              name={product.name}
+              price={product.price}
+              perQuantity={product.perQuantity}
+              totalQuantity={product.totalQuantity}
+              location={product.location}
+              createdAt={product.createdAt}
+              userName={
+                product.user.email === userStore.email
+                  ? 'YOU'
+                  : `${product.user.firstName} ${product.user.lastName}`
+              }
+            />
+          ))
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,27 @@
+.imagecropper {
+  height: 20rem;
+  width: 30rem;
+  outline: 3px solid var(--color-green-dark);
+  background-color: #abe4d4;
+  margin: 0 auto;
+}
+
+.imagecropper-container {
+  height: 100%;
+  width: 100%;
+}
+
+.imagecropper-img {
+  height: 100%;
+  width: 100%;
+}
+
+/* .cropper-crop-box,
+.cropper-view-box {
+  border-radius: 50%;
+}
+
+.cropper-view-box {
+  box-shadow: 0 0 0 1px #39f;
+  outline: 0;
+} */

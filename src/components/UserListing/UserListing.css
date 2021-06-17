@@ -27,9 +27,11 @@
 
 .upl-info-container {
   align-self: center;
+  text-align: left;
 }
 
 .upl-info-label {
+  text-transform: capitalize;
   font-size: 1.2rem;
   color: #4d7c7d;
   letter-spacing: 1px;

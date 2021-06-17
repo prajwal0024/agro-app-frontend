@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './Sidebar.css';
 import UserProfileImage from '../../assests/images/user-profile.jpg';
 import { ReactComponent as HomeIcon } from '../../assests/icons/home.svg';
@@ -15,35 +16,39 @@ import {
   MY_PRODUCT_ROUTE,
   PREDICTION_ROUTE,
 } from '../../constants/routes';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import handleLogout from '../../helpers/handleLogout';
+import { useEffect } from 'react';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { t } = useTranslation();
   const { pathname } = useLocation();
+  const userStore = useSelector((state) => state.authReducer.user);
 
   return (
     <div className="home-sidebar">
       <div className="sidebar-user-container">
         <div className="sidebar-user-img-container">
           <img
-            src={UserProfileImage}
+            src={userStore.image || UserProfileImage}
             alt="user profile"
             className="sidebar-user-img"
           />
         </div>
-        <p className="sidebar-user-name">User name</p>
-        <p className="sidebar-user-info">User name</p>
+        <p className="sidebar-user-name">{`${userStore.firstName} ${userStore.lastName}`}</p>
+        {userStore.areaCode && (
+          <p className="sidebar-user-info">{userStore.areaCode}</p>
+        )}
       </div>
       <hr className="sidebar-hr" />
       <div className="sidebar-menu-container">
         <Link
           to={HOME_ROUTE}
           className={`sidebar-menu-item ${
-            pathname === '/' && 'sidebar-menu-item-active'
+            pathname === HOME_ROUTE && 'sidebar-menu-item-active'
           }`}
         >
           <HomeIcon className="sidebar-menu-item-icon" />
@@ -53,7 +58,7 @@ const Sidebar = () => {
         <Link
           to={PREDICTION_ROUTE}
           className={`sidebar-menu-item ${
-            pathname === '/prediction' && 'sidebar-menu-item-active'
+            pathname === PREDICTION_ROUTE && 'sidebar-menu-item-active'
           }`}
         >
           <PlantIcon className="sidebar-menu-item-icon" />
@@ -65,7 +70,7 @@ const Sidebar = () => {
         <Link
           to={MY_PRODUCT_ROUTE}
           className={`sidebar-menu-item ${
-            pathname === '/my/products' && 'sidebar-menu-item-active'
+            pathname === MY_PRODUCT_ROUTE && 'sidebar-menu-item-active'
           }`}
         >
           <MyProductIcon className="sidebar-menu-item-icon" />
@@ -75,7 +80,7 @@ const Sidebar = () => {
         <Link
           to={ACCOUNT_SETTINGS_ROUTE}
           className={`sidebar-menu-item ${
-            pathname === '/my/settings' && 'sidebar-menu-item-active'
+            pathname === ACCOUNT_SETTINGS_ROUTE && 'sidebar-menu-item-active'
           }`}
         >
           <UserIcon className="sidebar-menu-item-icon" />

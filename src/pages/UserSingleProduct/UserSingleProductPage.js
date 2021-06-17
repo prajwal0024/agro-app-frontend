@@ -87,7 +87,7 @@ const UserSingleProductPage = ({ history }) => {
             harvestingDate: userInputDate,
           });
 
-      toast.success('Product Update Successful');
+      toast.success(`Product ${id ? 'Update' : 'Added'} Successful`);
     } catch (error) {
       axiosErrorHandler(error);
     }
