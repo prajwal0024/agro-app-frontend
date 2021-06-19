@@ -1,5 +1,5 @@
 import './UserListing.css';
-import ProductImage from '../../assests/images/product-image-missing.jpg';
+import ProductImageMissing from '../../assests/images/product-image-missing.jpg';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const UserListing = ({
@@ -10,6 +10,7 @@ const UserListing = ({
   location,
   createdAt,
   link,
+  mainImage,
 }) => {
   const { t } = useTranslation();
   const months = [
@@ -33,7 +34,11 @@ const UserListing = ({
   return (
     <div className="upl">
       <div className="upl-img-container">
-        <img src={ProductImage} alt="product" className="upl-img" />
+        <img
+          src={mainImage || ProductImageMissing}
+          alt="product"
+          className="upl-img"
+        />
       </div>
 
       <div className="upl-info-container">

@@ -46,6 +46,7 @@ const UserProductsPage = () => {
                     totalQuantity,
                     location,
                     createdAt,
+                    mainImage,
                   } = product;
                   return (
                     <div key={index}>
@@ -58,6 +59,7 @@ const UserProductsPage = () => {
                         totalQuantity={totalQuantity}
                         location={location}
                         createdAt={createdAt}
+                        mainImage={mainImage}
                         link={`/user/product/${product._id}`}
                       />
                     </div>

@@ -175,7 +175,7 @@ const AccountSettingsPage = ({ history }) => {
           ) : (
             <div className="user-acc-profile-img-container">
               <img
-                src={userStore.image || UserProfile}
+                src={userStore?.image || UserProfile}
                 alt="user profile"
                 className="user-acc-profile-img"
               />
@@ -183,12 +183,6 @@ const AccountSettingsPage = ({ history }) => {
           )}
 
           <div className="user-acc-profile-buttons-container">
-            {/* 
-            
-              LABEL:   CHANGE|ADD IMAGE
-              INPUT
-              BUTTON:  CANCEL UPLOAD | REMOVE IMAGE
-            */}
             {axiosImageLoading ? (
               <p>Loading please wait...</p>
             ) : userImageInputs ? (

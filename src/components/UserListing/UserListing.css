@@ -18,6 +18,7 @@
   grid-row-end: 3;
   align-self: center;
   justify-self: center;
+  border: 2px solid var(--color-green-dark);
 }
 
 .upl-img {

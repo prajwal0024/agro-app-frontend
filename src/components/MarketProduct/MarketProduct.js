@@ -9,6 +9,7 @@ const MarketProduct = ({
   location,
   createdAt,
   userName,
+  mainImage,
 }) => {
   const { t } = useTranslation();
   const months = [
@@ -32,7 +33,11 @@ const MarketProduct = ({
   return (
     <div className="upl">
       <div className="upl-img-container">
-        <img src={ProductImage} alt="product" className="upl-img" />
+        <img
+          src={mainImage || ProductImage}
+          alt="product"
+          className="upl-img"
+        />
       </div>
 
       <div className="upl-info-container">

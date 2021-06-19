@@ -3,7 +3,7 @@ import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.min.css';
 import './ImageCropper.css';
 
-const ImageCropper = ({ srcImage, setCropImage }) => {
+const ImageCropper = ({ srcImage, setCropImage, percent = 10 }) => {
   const imageRef = useRef();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const ImageCropper = ({ srcImage, setCropImage }) => {
       crop: () => {
         const canvas = cropper
           .getCroppedCanvas()
-          .toDataURL('image/jpeg', 10 / 100);
+          .toDataURL('image/jpeg', percent / 100);
         setCropImage(canvas);
       },
     });

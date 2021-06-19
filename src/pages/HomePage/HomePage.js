@@ -64,6 +64,7 @@ const HomePage = ({ history }) => {
               totalQuantity={product.totalQuantity}
               location={product.location}
               createdAt={product.createdAt}
+              mainImage={product.mainImage}
               userName={
                 product.user.email === userStore.email
                   ? 'YOU'

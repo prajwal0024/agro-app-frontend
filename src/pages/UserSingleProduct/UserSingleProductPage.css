@@ -1,5 +1,5 @@
 .user-prod-sing-inputs-container {
-  margin: 2rem auto 5rem;
+  margin: 0rem auto 5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 6rem;
@@ -14,4 +14,122 @@
 .user-sing-prod-span-input {
   grid-column: 1 / span 2;
   width: 97.5%;
+}
+
+.user-prod-sing-images-container {
+  grid-column: 1 / span 2;
+  width: 97.5%;
+  margin: 2rem 2rem 7rem;
+
+  display: flex;
+}
+
+.user-prod-sing-image-container {
+  height: 15rem;
+  width: 15rem;
+  border: 2px solid var(--color-green-dark);
+  position: relative;
+}
+
+.user-prod-sing-image-container:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.user-prod-sing-image {
+  height: 100%;
+  width: 100%;
+}
+
+.user-prod-sing-add-image {
+  height: 15rem;
+  width: 15rem;
+  background-color: #b7e1d5;
+  border: 2px solid var(--color-green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.user-prod-sing-add-image > label {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding-top: 40%;
+  cursor: pointer;
+}
+
+/* .user-prod-sing-cropper-buttons {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-top: 2rem;
+} */
+
+.user-prod-sing-image-buttons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  background-color: #02444673;
+  display: none;
+}
+.user-prod-sing-image-container:hover > .user-prod-sing-image-buttons {
+  display: block;
+}
+
+.user-prod-sing-image-remove {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ffcbac;
+  background-color: #fff0eb;
+  color: #fd731b;
+  margin-top: 60%;
+  cursor: pointer;
+}
+
+.user-prod-sing-heading-secondary {
+  grid-column: 1 / span 2;
+
+  font-size: 2rem;
+  font-weight: 500;
+  padding-bottom: 0.7rem;
+  color: var(--color-green-dark);
+  text-decoration: underline;
+}
+
+.user-prod-sing-main-img-section {
+  margin: 2rem 2rem 7rem;
+}
+
+.user-prod-sing-main-img-body {
+  display: flex;
+  width: max-content;
+  align-items: center;
+}
+
+.user-prod-sing-main-img-container {
+  height: 15rem;
+  width: 15rem;
+  border: 2px solid var(--color-green-dark);
+  margin: 0 auto;
+
+  background-color: #b7e1d5;
+}
+
+.user-prod-sing-main-img {
+  height: 100%;
+  width: 100%;
+}
+
+.user-prod-sing-cropper-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+.user-prod-sing-cropper-buttons > *:not(:last-child) {
+  margin-bottom: 2rem;
 }

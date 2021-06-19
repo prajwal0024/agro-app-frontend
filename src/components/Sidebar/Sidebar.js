@@ -33,14 +33,18 @@ const Sidebar = () => {
       <div className="sidebar-user-container">
         <div className="sidebar-user-img-container">
           <img
-            src={userStore.image || UserProfileImage}
+            src={userStore?.image || UserProfileImage}
             alt="user profile"
             className="sidebar-user-img"
           />
         </div>
-        <p className="sidebar-user-name">{`${userStore.firstName} ${userStore.lastName}`}</p>
-        {userStore.areaCode && (
-          <p className="sidebar-user-info">{userStore.areaCode}</p>
+        <p className="sidebar-user-name">
+          {`${userStore?.firstName || 'Welcome to AgroApp'} ${
+            userStore?.lastName || ''
+          }`}
+        </p>
+        {userStore?.areaCode && (
+          <p className="sidebar-user-info">{userStore?.areaCode}</p>
         )}
       </div>
       <hr className="sidebar-hr" />
