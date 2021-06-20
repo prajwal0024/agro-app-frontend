@@ -8,8 +8,7 @@ const ProductImageCropper = ({
   setImage,
   setCroppedImage,
   handleUpload,
-
-  axiosLoading,
+  axiosLoading = false,
 }) => {
   return (
     <div className="product-cropper-container">

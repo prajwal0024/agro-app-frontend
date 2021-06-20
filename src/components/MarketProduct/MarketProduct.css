@@ -1,0 +1,88 @@
+.mp {
+  background: white;
+  border: 2px solid var(--color-green);
+  color: inherit;
+  text-decoration: none;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.mp:hover {
+  border: 2px solid var(--color-green-dark);
+  transform: translateY(-3px);
+}
+
+.mp-img-container {
+  width: 100%;
+  height: 21.6rem;
+
+  overflow: hidden;
+}
+.mp-img {
+  width: 100%;
+  height: auto;
+  background-position: center;
+}
+
+.mp-product-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 1.5rem;
+  row-gap: 2rem;
+  padding: 1rem;
+  letter-spacing: 1px;
+}
+.mp-info-span {
+  grid-column: 1 / span 2;
+}
+
+.mp-info-label {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: #4d7c7d;
+  margin-bottom: 0.3rem;
+}
+
+.mp-info {
+  font-size: 1.4rem;
+  color: var(--color-green-dark);
+}
+
+.mp-info-hr {
+  margin: 0 1rem;
+  /* border-color: #ffefef; */
+  border: 1px solid #e2e2e2;
+}
+
+.mp-info-user {
+  padding: 1rem;
+  margin-left: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.mp-info-user-img-container {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 5px;
+  border: 2px solid var(--color-green-dark);
+  overflow: hidden;
+}
+
+.mp-info-user-img {
+  width: 100%;
+  height: 100%;
+}
+
+.mp-info-user-details {
+  margin-left: 1rem;
+}
+
+.mp-info-user-name {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+}
+
+.mp-info-user-posted-at {
+  font-size: 1.2rem;
+}

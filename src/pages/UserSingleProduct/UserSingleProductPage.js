@@ -72,27 +72,27 @@ const UserSingleProductPage = ({ history }) => {
       return toast.error('Please fill all the inputs');
 
     try {
-      id
-        ? await axios.patch(`/api/v1/products/${id}`, {
-            name,
-            price,
-            perQuantity,
-            totalQuantity,
-            description,
-            location,
-            contact,
-            harvestingDate: userInputDate,
-          })
-        : await axios.post(`/api/v1/products/user`, {
-            name,
-            price,
-            perQuantity,
-            totalQuantity,
-            description,
-            location,
-            contact,
-            harvestingDate: userInputDate,
-          });
+      const areaCodeResponse = await axios.get(
+        `https://thingproxy.freeboard.io/fetch/https://api.postalpincode.in/pincode/${location}`
+      );
+      if (areaCodeResponse.data[0].Status === 'Error') {
+        return toast.error('Invalid Area Code');
+      }
+
+      const { District, State } = areaCodeResponse.data[0].PostOffice[0];
+
+      await axios.patch(`/api/v1/products/${id}`, {
+        name,
+        price,
+        perQuantity,
+        totalQuantity,
+        description,
+        location,
+        contact,
+        harvestingDate: userInputDate,
+        block: District,
+        state: State,
+      });
 
       toast.success(`Product ${id ? 'Update' : 'Added'} Successful`);
     } catch (error) {
@@ -249,6 +249,7 @@ const UserSingleProductPage = ({ history }) => {
               </div>
             )}
           </div>
+
           {/* Product's Other Images */}
           <h2 className="user-prod-sing-heading-secondary">
             Additional Product Images
@@ -307,6 +308,7 @@ const UserSingleProductPage = ({ history }) => {
               </>
             )}
           </div>
+
           {/* Product's Information*/}
           <h2 className="user-prod-sing-heading-secondary">
             Product Information

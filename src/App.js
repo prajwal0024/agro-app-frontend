@@ -10,11 +10,14 @@ import HomePage from './pages/HomePage/HomePage';
 import CropPredictionPage from './pages/CropPrediction/CropPredictionPage';
 import UserProductsPage from './pages/UserProducts/UserProductsPage';
 import AccountSettingsPage from './pages/AccountSettings/AccountSettingsPage';
+import MarketProductPage from './pages/MarketProduct/MarketProductPage';
 
 import {
   ACCOUNT_SETTINGS_ROUTE,
+  ADD_PRODUCT_PAGE,
   HOME_ROUTE,
   LOGIN_ROUTE,
+  MARKET_SINGLE_PRODUCT_PAGE,
   MY_PRODUCT_ROUTE,
   PREDICTION_ROUTE,
   SIGNUP_ROUTE,
@@ -32,6 +35,7 @@ import { useTranslation } from 'react-i18next';
 import Sidebar from './components/Sidebar/Sidebar';
 import NotFound from './pages/NotFound/NotFound';
 import UserSingleProductPage from './pages/UserSingleProduct/UserSingleProductPage';
+import AddProductPage from './pages/AddProduct/AddProductPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +44,7 @@ function App() {
 
   const [loading, setLoading] = useState(true);
   const [showSidebar, setShowSidebar] = useState(true);
+  const [notLogin, setNotLogin] = useState(false);
 
   const retriveUser = async () => {
     try {
@@ -58,6 +63,7 @@ function App() {
       }
       setLoading(false);
     } catch (error) {
+      setNotLogin(true);
       setLoading(false);
     }
   };
@@ -74,44 +80,61 @@ function App() {
         <div className="app">
           <NavBar />
           <ToastContainer />
-          <Switch>
-            <Route path={LOGIN_ROUTE} component={LoginPage} exact />
-            <Route path={SIGNUP_ROUTE} component={SignupPage} exact />
-            <div className="app-container container">
-              {showSidebar && <Sidebar />}
-              <div className="app-main">
-                <Switch>
-                  <Route path={HOME_ROUTE} component={HomePage} exact />
-                  <Route
-                    path={PREDICTION_ROUTE}
-                    component={CropPredictionPage}
-                    exact
-                  />
-                  <Route
-                    path={MY_PRODUCT_ROUTE}
-                    component={UserProductsPage}
-                    exact
-                  />
-                  <Route
-                    path={ACCOUNT_SETTINGS_ROUTE}
-                    component={AccountSettingsPage}
-                    exact
-                  />
-                  <Route
-                    path={USER_SINGLE_PRODUCT_PAGE}
-                    component={UserSingleProductPage}
-                    exact
-                  />
-                  <Route
-                    path="*"
-                    component={() => (
-                      <NotFound setShowSidebar={setShowSidebar} />
-                    )}
-                  />
-                </Switch>
+          {notLogin ? (
+            <Switch>
+              <Route path={LOGIN_ROUTE} component={LoginPage} exact />
+              <Route path={SIGNUP_ROUTE} component={SignupPage} exact />
+            </Switch>
+          ) : (
+            <Switch>
+              <Route path={LOGIN_ROUTE} component={LoginPage} exact />
+              <Route path={SIGNUP_ROUTE} component={SignupPage} exact />
+              <div className="app-container container">
+                {showSidebar && <Sidebar />}
+                <div className="app-main">
+                  <Switch>
+                    <Route path={HOME_ROUTE} component={HomePage} exact />
+                    <Route
+                      path={PREDICTION_ROUTE}
+                      component={CropPredictionPage}
+                      exact
+                    />
+                    <Route
+                      path={MY_PRODUCT_ROUTE}
+                      component={UserProductsPage}
+                      exact
+                    />
+                    <Route
+                      path={ACCOUNT_SETTINGS_ROUTE}
+                      component={AccountSettingsPage}
+                      exact
+                    />
+                    <Route
+                      path={USER_SINGLE_PRODUCT_PAGE}
+                      component={UserSingleProductPage}
+                      exact
+                    />
+                    <Route
+                      path={MARKET_SINGLE_PRODUCT_PAGE}
+                      component={MarketProductPage}
+                      exact
+                    />
+                    <Route
+                      path={ADD_PRODUCT_PAGE}
+                      component={AddProductPage}
+                      exact
+                    />
+                    <Route
+                      path="*"
+                      component={() => (
+                        <NotFound setShowSidebar={setShowSidebar} />
+                      )}
+                    />
+                  </Switch>
+                </div>
               </div>
-            </div>
-          </Switch>
+            </Switch>
+          )}
         </div>
       </Router>
     </>

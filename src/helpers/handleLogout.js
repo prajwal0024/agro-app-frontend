@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import { logout } from '../actions/authActions';
 import { LOGIN_ROUTE } from '../constants/routes';
 import axiosErrorHandler from './axiosErrorHandler';
@@ -15,7 +17,7 @@ const handleLogout = async (dispatch, history) => {
     await dispatch(logout());
 
     // 4. Redirect
-    history.push(LOGIN_ROUTE);
+    return <Redirect to={LOGIN_ROUTE} />;
   } catch (error) {
     axiosErrorHandler(error);
   }

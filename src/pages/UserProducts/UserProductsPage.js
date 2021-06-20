@@ -1,16 +1,19 @@
 /* eslint-disable no-unused-vars */
 import './UserProductsPage.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { ReactComponent as EmptyListingIllustration } from '../../assests/illustration/empty-listing.svg';
 import { useEffect, useState } from 'react';
 import axiosErrorHandler from '../../helpers/axiosErrorHandler';
 import axios from 'axios';
 import UserListing from '../../components/UserListing/UserListing';
-import { USER_SINGLE_PRODUCT_PAGE } from '../../constants/routes';
+import { LOGIN_ROUTE, USER_SINGLE_PRODUCT_PAGE } from '../../constants/routes';
+import { useSelector } from 'react-redux';
 
 const UserProductsPage = () => {
   const [userProducts, setUserProducts] = useState([]);
   const [axiosLoading, setAxiosLoading] = useState(true);
+  const userStore = useSelector((state) => state.authReducer.user);
+  if (!userStore) return <Redirect to={LOGIN_ROUTE} />;
 
   const fetchUserProducts = async () => {
     setAxiosLoading(true);

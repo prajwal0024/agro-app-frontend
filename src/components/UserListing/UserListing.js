@@ -2,6 +2,7 @@ import './UserListing.css';
 import ProductImageMissing from '../../assests/images/product-image-missing.jpg';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { formatDate } from '../../helpers/dist';
 const UserListing = ({
   name,
   price,
@@ -13,24 +14,7 @@ const UserListing = ({
   mainImage,
 }) => {
   const { t } = useTranslation();
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  const formatDate = (dateString) => {
-    const dateArray = dateString.split('T')[0].split('-');
-    return `${dateArray[2]} ${months[parseInt(dateArray[1])]} ${dateArray[0]}`;
-  };
+
   return (
     <div className="upl">
       <div className="upl-img-container">

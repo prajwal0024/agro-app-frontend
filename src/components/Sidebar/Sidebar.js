@@ -22,11 +22,11 @@ import handleLogout from '../../helpers/handleLogout';
 import { useEffect } from 'react';
 
 const Sidebar = () => {
+  const userStore = useSelector((state) => state.authReducer.user);
   const dispatch = useDispatch();
   const history = useHistory();
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const userStore = useSelector((state) => state.authReducer.user);
 
   return (
     <div className="home-sidebar">
@@ -43,7 +43,7 @@ const Sidebar = () => {
             userStore?.lastName || ''
           }`}
         </p>
-        {userStore?.areaCode && (
+        {false && userStore?.areaCode && (
           <p className="sidebar-user-info">{userStore?.areaCode}</p>
         )}
       </div>

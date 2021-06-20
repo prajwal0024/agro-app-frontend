@@ -7,6 +7,8 @@
   margin: 0 2rem 2rem 2rem;
   padding: 2.2rem 2.5rem 2.2rem 0rem;
   row-gap: 2rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .upl-img-container {

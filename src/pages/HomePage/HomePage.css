@@ -1,0 +1,40 @@
+.home-market-container {
+  margin: 0rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 2rem;
+  align-items: stretch;
+}
+
+.home-search {
+  margin: -1rem 2rem 3rem;
+  display: flex;
+}
+
+.home-search-input {
+  flex: 1;
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #69888a;
+  border-radius: 3px;
+}
+
+.home-search-button {
+  font-size: 1.2rem;
+  font-family: inherit;
+  color: white;
+  background-color: var(--color-green);
+  letter-spacing: 1px;
+  border: 2px solid var(--color-green);
+  padding: 0 1.5rem;
+  margin-left: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.home-search-button:hover {
+  text-decoration: underline;
+  border: 2px solid var(--color-green-dark);
+}

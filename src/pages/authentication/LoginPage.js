@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { SIGNUP_ROUTE } from '../../constants/routes';
 import axiosErrorHandler from '../../helpers/axiosErrorHandler';
@@ -20,7 +20,8 @@ const LoginPage = ({ history }) => {
 
   const userStore = useSelector((state) => state.authReducer.user);
 
-  if (userStore && Object.keys(userStore).length > 0) history.push('/');
+  if (userStore && Object.keys(userStore).length > 0)
+    return <Redirect to="/" />;
 
   const handleLogin = async (event) => {
     event.preventDefault();

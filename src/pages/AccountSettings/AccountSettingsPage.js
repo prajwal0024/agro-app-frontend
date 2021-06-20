@@ -14,6 +14,7 @@ import { setUser } from '../../actions/authActions';
 import handleLogout from '../../helpers/handleLogout';
 import { ACCOUNT_SETTINGS_ROUTE, LOGIN_ROUTE } from '../../constants/routes';
 import { setUserImage } from '../../actions/userActions';
+import { Redirect } from 'react-router-dom';
 
 const AccountSettingsPage = ({ history }) => {
   let oldAreaCode = 0;
@@ -38,7 +39,7 @@ const AccountSettingsPage = ({ history }) => {
 
   useEffect(() => {
     if (!userStore || Object.keys(userStore).length === 0) {
-      history.push(LOGIN_ROUTE);
+      return history.push(LOGIN_ROUTE);
     }
     return () => {
       if (
@@ -50,6 +51,10 @@ const AccountSettingsPage = ({ history }) => {
       }
     };
   }, []);
+
+  if (!userStore) {
+    return <Redirect to={LOGIN_ROUTE} />;
+  }
 
   // const setUserLocation = async () => {
   //   if (!userStore.areaCode) return;
@@ -171,6 +176,7 @@ const AccountSettingsPage = ({ history }) => {
             <ImageCropper
               srcImage={userImageInputs}
               setCropImage={setUserCroppedImage}
+              value={90}
             />
           ) : (
             <div className="user-acc-profile-img-container">
